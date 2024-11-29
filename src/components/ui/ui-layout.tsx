@@ -136,3 +136,13 @@ export function useTransactionToast() {
     );
   };
 }
+
+export function useToast() {
+  return (text: string) => {
+    toast.success(
+      <div className={"text-center"}>
+        <div className="text-md">{text}</div>
+      </div>,
+    );
+  };
+}
