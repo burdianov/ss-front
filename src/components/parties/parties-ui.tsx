@@ -3,12 +3,31 @@ import { PublicKey } from "@solana/web3.js";
 import { useWallet } from "@solana/wallet-adapter-react";
 
 import { useSsProgram } from "./parties-data-access.tsx";
+import PartyLine from "../party/party-line.tsx";
 
 interface FormData {
   location: string;
   date: string;
   budget: number;
 }
+
+const partyInfo = [
+  {
+    location: "Hilton",
+    date: "24 December",
+    budget: "20",
+  },
+  {
+    location: "Le Meridian",
+    date: "12 December",
+    budget: "25",
+  },
+  {
+    location: "Millenium",
+    date: "3 December",
+    budget: "45",
+  },
+];
 
 export function PartyCreate() {
   const { publicKey } = useWallet();
@@ -112,7 +131,7 @@ export function PartiesList() {
           {/* head */}
           <thead>
             <tr>
-              <th></th>
+              <th>SN</th>
               <th>Location</th>
               <th>Date</th>
               <th>Budget (USD)</th>
@@ -120,36 +139,17 @@ export function PartiesList() {
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
-            <tr>
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-              <th>
-                <button className="btn btn-ghost btn-xs">View</button>
-              </th>
-            </tr>
-            {/* row 2 */}
-            <tr>
-              <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Purple</td>
-              <th>
-                <button className="btn btn-ghost btn-xs">View</button>
-              </th>
-            </tr>
-            {/* row 3 */}
-            <tr>
-              <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Red</td>
-              <th>
-                <button className="btn btn-ghost btn-xs">View</button>
-              </th>
-            </tr>
+            {partyInfo.map((info, index) => {
+              return (
+                <PartyLine
+                  key={index}
+                  serialNumber={(index + 1).toString()}
+                  location={info.location}
+                  date={info.date}
+                  budget={info.budget}
+                />
+              );
+            })}
           </tbody>
         </table>
       </div>
