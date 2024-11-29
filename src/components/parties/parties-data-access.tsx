@@ -1,6 +1,6 @@
 import { getSsProgram, getSsProgramId } from "@project/anchor";
 import { useConnection } from "@solana/wallet-adapter-react";
-import { Cluster, Keypair, PublicKey } from "@solana/web3.js";
+import { Cluster, PublicKey } from "@solana/web3.js";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
 import { useMemo } from "react";
@@ -17,22 +17,19 @@ export function useSsProgram() {
   const programId = useMemo(() => getSsProgramId(cluster.network as Cluster), [cluster]);
   const program = getSsProgram(provider);
 
-  console.log("programId", programId);
-  console.log("cluster", cluster);
-
   const partiesAccounts = useQuery({
-    queryKey: ["parties-accounts", "all", { cluster }],
+    queryKey: ["parties-accounts", "all"],
     queryFn: () => program.account.parties.all(),
   });
 
   const getProgramAccount = useQuery({
-    queryKey: ["get-program-account", { cluster }],
+    queryKey: ["get-program-account"],
     queryFn: () => connection.getParsedAccountInfo(programId),
   });
 
   const initialize = useMutation({
-    mutationKey: ["parties", "initialize", { cluster }],
-    mutationFn: (keypair: Keypair) => program.methods.initialize().accounts({ organizer: keypair.publicKey }).rpc(),
+    mutationKey: ["parties", "initialize"],
+    mutationFn: (publicKey: PublicKey) => program.methods.initialize().accounts({ organizer: publicKey }).rpc(),
     onSuccess: (signature) => {
       transactionToast(signature);
       return partiesAccounts.refetch();
@@ -40,5 +37,5 @@ export function useSsProgram() {
     onError: () => toast.error("Failed to initialize parties"),
   });
 
-  return { initialize, getProgramAccount, partiesAccounts };
+  return { initialize, getProgramAccount, partiesAccounts, programId };
 }
