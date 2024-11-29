@@ -1,4 +1,5 @@
 // import { PartyFeature } from "@/components/party/party-feature";
+import ParticipantsFeature from "@/components/participants/participants-feature";
 import { UiLayout } from "@/components/ui/ui-layout";
 import { lazy } from "react";
 import { Navigate, RouteObject, useRoutes } from "react-router-dom";
@@ -10,12 +11,14 @@ const PartyFeature = lazy(() => import("../components/party/party-feature"));
 const links: { label: string; path: string }[] = [
   { label: "Parties", path: "/parties" },
   { label: "Party", path: "/party" },
+  { label: "Participants", path: "/participants" },
 ];
 
 const routes: RouteObject[] = [
   { path: "/", element: <HomeFeature /> },
   { path: "/parties", element: <PartiesFeature /> },
   { path: "/party", element: <PartyFeature /> },
+  { path: "/participants", element: <ParticipantsFeature /> },
 ];
 
 export function AppRoutes() {
