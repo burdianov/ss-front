@@ -1,19 +1,24 @@
+// import { PartyFeature } from "@/components/party/party-feature";
 import { UiLayout } from "@/components/ui/ui-layout";
 import { lazy } from "react";
 import { Navigate, RouteObject, useRoutes } from "react-router-dom";
 
-// const DashboardFeature = lazy(() => import("../components/dashboard/dashboard-feature"));
+const HomeFeature = lazy(() => import("../components/home/home-feature"));
+const PartiesFeature = lazy(() => import("../components/parties/parties-feature"));
+const PartyFeature = lazy(() => import("../components/party/party-feature"));
 
-const links: { label: string; path: string }[] = [{ label: "Party", path: "/party" }];
+const links: { label: string; path: string }[] = [
+  { label: "Parties", path: "/parties" },
+  { label: "Party", path: "/party" },
+];
 
-const routes: RouteObject[] = [{ path: "/party", element: <AccountListFeature /> }];
+const routes: RouteObject[] = [
+  { path: "/", element: <HomeFeature /> },
+  { path: "/parties", element: <PartiesFeature /> },
+  { path: "/party", element: <PartyFeature /> },
+];
 
 export function AppRoutes() {
-  const router = useRoutes([
-    { index: true, element: <Navigate to={"/"} replace={true} /> },
-    { path: "/", element: <DashboardFeature /> },
-    ...routes,
-    { path: "*", element: <Navigate to={"/"} replace={true} /> },
-  ]);
+  const router = useRoutes([...routes, { path: "*", element: <Navigate to={"/"} replace={true} /> }]);
   return <UiLayout links={links}>{router}</UiLayout>;
 }
