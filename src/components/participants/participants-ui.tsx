@@ -3,7 +3,7 @@ import { PublicKey } from "@solana/web3.js";
 import { useWallet } from "@solana/wallet-adapter-react";
 
 import ParticipantLine from "./participant-line.tsx";
-import { useSsProgram } from "../parties/parties-data-access.tsx";
+import { useSsProgram } from "../data-access/ss-data-access.tsx";
 
 interface FormData {
   serialNumber: string;
