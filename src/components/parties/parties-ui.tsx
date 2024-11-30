@@ -14,17 +14,17 @@ interface FormData {
 const partyInfo = [
   {
     location: "Hilton",
-    date: "24 December",
+    date: "",
     budget: "20",
   },
   {
     location: "Le Meridian",
-    date: "12 December",
+    date: new Date(Date.UTC(2024, 11, 24, 15, 0, 0)),
     budget: "25",
   },
   {
     location: "Millenium",
-    date: "3 December",
+    date: new Date(Date.UTC(2024, 11, 24, 15, 0, 0)),
     budget: "45",
   },
 ];
@@ -145,7 +145,7 @@ export function PartiesList() {
                   key={index}
                   serialNumber={(index + 1).toString()}
                   location={info.location}
-                  date={info.date}
+                  date={info.date.toLocaleString()}
                   budget={info.budget}
                 />
               );
