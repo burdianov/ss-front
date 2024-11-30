@@ -1,8 +1,10 @@
-import { defineConfig } from 'vite';
+import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill';
 import react from '@vitejs/plugin-react';
-import viteTsconfigPaths from 'vite-tsconfig-paths';
+import { defineConfig } from 'vite';
+import { nodePolyfills } from 'vite-plugin-node-polyfills';
+import viteTsconfigPaths from 'vite-tsconfig-paths'; // https://vitejs.dev/config/
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
   build: {
     sourcemap: false,
@@ -20,6 +22,7 @@ export default defineConfig({
             '@solana/wallet-adapter-react',
             '@solana/wallet-adapter-react-ui',
           ],
+          tabler: ['@tabler/icons-react'],
           tanstack: ['@tanstack/react-query'],
         },
       },
@@ -30,9 +33,12 @@ export default defineConfig({
   },
   optimizeDeps: {
     esbuildOptions: {
-      plugins: [],
+      plugins: [
+        NodeGlobalsPolyfillPlugin({
+          process: true,
+        }),
+      ],
     },
   },
-  plugins: [viteTsconfigPaths(), react()],
-})
-
+  plugins: [viteTsconfigPaths(), react(), nodePolyfills()],
+});

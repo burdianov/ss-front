@@ -1,5 +1,5 @@
 {
-  "address": "46s1CHb7PQHHJJ7F3MetxcEriy9aBYD4PVb93GBe8ig2",
+  "address": "BBsq6t16qU2Bs1CCgLVWPpmPn2DhkqqCAYxFRR4pwAKx",
   "metadata": {
     "name": "ss_back",
     "version": "0.1.0",
@@ -9,7 +9,16 @@
   "instructions": [
     {
       "name": "add_participant",
-      "discriminator": [153, 137, 99, 142, 169, 212, 240, 50],
+      "discriminator": [
+        153,
+        137,
+        99,
+        142,
+        169,
+        212,
+        240,
+        50
+      ],
       "accounts": [
         {
           "name": "participant",
@@ -18,7 +27,19 @@
             "seeds": [
               {
                 "kind": "const",
-                "value": [112, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116]
+                "value": [
+                  112,
+                  97,
+                  114,
+                  116,
+                  105,
+                  99,
+                  105,
+                  112,
+                  97,
+                  110,
+                  116
+                ]
               },
               {
                 "kind": "account",
@@ -42,7 +63,13 @@
             "seeds": [
               {
                 "kind": "const",
-                "value": [112, 97, 114, 116, 121]
+                "value": [
+                  112,
+                  97,
+                  114,
+                  116,
+                  121
+                ]
               },
               {
                 "kind": "account",
@@ -86,7 +113,16 @@
     },
     {
       "name": "assign_buddy",
-      "discriminator": [164, 60, 0, 208, 4, 224, 153, 211],
+      "discriminator": [
+        164,
+        60,
+        0,
+        208,
+        4,
+        224,
+        153,
+        211
+      ],
       "accounts": [
         {
           "name": "participant",
@@ -95,7 +131,19 @@
             "seeds": [
               {
                 "kind": "const",
-                "value": [112, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116]
+                "value": [
+                  112,
+                  97,
+                  114,
+                  116,
+                  105,
+                  99,
+                  105,
+                  112,
+                  97,
+                  110,
+                  116
+                ]
               },
               {
                 "kind": "account",
@@ -119,7 +167,13 @@
             "seeds": [
               {
                 "kind": "const",
-                "value": [112, 97, 114, 116, 121]
+                "value": [
+                  112,
+                  97,
+                  114,
+                  116,
+                  121
+                ]
               },
               {
                 "kind": "account",
@@ -159,7 +213,16 @@
     },
     {
       "name": "create_party",
-      "discriminator": [251, 84, 246, 151, 106, 204, 201, 22],
+      "discriminator": [
+        251,
+        84,
+        246,
+        151,
+        106,
+        204,
+        201,
+        22
+      ],
       "accounts": [
         {
           "name": "party",
@@ -168,7 +231,13 @@
             "seeds": [
               {
                 "kind": "const",
-                "value": [112, 97, 114, 116, 121]
+                "value": [
+                  112,
+                  97,
+                  114,
+                  116,
+                  121
+                ]
               },
               {
                 "kind": "account",
@@ -188,7 +257,15 @@
             "seeds": [
               {
                 "kind": "const",
-                "value": [112, 97, 114, 116, 105, 101, 115]
+                "value": [
+                  112,
+                  97,
+                  114,
+                  116,
+                  105,
+                  101,
+                  115
+                ]
               },
               {
                 "kind": "account",
@@ -228,7 +305,16 @@
     },
     {
       "name": "initialize",
-      "discriminator": [175, 175, 109, 31, 13, 152, 155, 237],
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
       "accounts": [
         {
           "name": "parties",
@@ -237,7 +323,15 @@
             "seeds": [
               {
                 "kind": "const",
-                "value": [112, 97, 114, 116, 105, 101, 115]
+                "value": [
+                  112,
+                  97,
+                  114,
+                  116,
+                  105,
+                  101,
+                  115
+                ]
               },
               {
                 "kind": "account",
@@ -260,7 +354,16 @@
     },
     {
       "name": "update_participant",
-      "discriminator": [21, 180, 156, 111, 222, 176, 127, 243],
+      "discriminator": [
+        21,
+        180,
+        156,
+        111,
+        222,
+        176,
+        127,
+        243
+      ],
       "accounts": [
         {
           "name": "participant",
@@ -269,7 +372,19 @@
             "seeds": [
               {
                 "kind": "const",
-                "value": [112, 97, 114, 116, 105, 99, 105, 112, 97, 110, 116]
+                "value": [
+                  112,
+                  97,
+                  114,
+                  116,
+                  105,
+                  99,
+                  105,
+                  112,
+                  97,
+                  110,
+                  116
+                ]
               },
               {
                 "kind": "account",
@@ -293,7 +408,13 @@
             "seeds": [
               {
                 "kind": "const",
-                "value": [112, 97, 114, 116, 121]
+                "value": [
+                  112,
+                  97,
+                  114,
+                  116,
+                  121
+                ]
               },
               {
                 "kind": "account",
@@ -341,7 +462,16 @@
     },
     {
       "name": "update_party",
-      "discriminator": [252, 43, 155, 138, 59, 72, 147, 228],
+      "discriminator": [
+        252,
+        43,
+        155,
+        138,
+        59,
+        72,
+        147,
+        228
+      ],
       "accounts": [
         {
           "name": "party",
@@ -350,7 +480,13 @@
             "seeds": [
               {
                 "kind": "const",
-                "value": [112, 97, 114, 116, 121]
+                "value": [
+                  112,
+                  97,
+                  114,
+                  116,
+                  121
+                ]
               },
               {
                 "kind": "account",
@@ -396,15 +532,42 @@
   "accounts": [
     {
       "name": "Participant",
-      "discriminator": [32, 142, 108, 79, 247, 179, 54, 6]
+      "discriminator": [
+        32,
+        142,
+        108,
+        79,
+        247,
+        179,
+        54,
+        6
+      ]
     },
     {
       "name": "Parties",
-      "discriminator": [109, 194, 171, 101, 24, 96, 110, 61]
+      "discriminator": [
+        109,
+        194,
+        171,
+        101,
+        24,
+        96,
+        110,
+        61
+      ]
     },
     {
       "name": "Party",
-      "discriminator": [208, 64, 165, 146, 114, 138, 161, 100]
+      "discriminator": [
+        208,
+        64,
+        165,
+        146,
+        114,
+        138,
+        161,
+        100
+      ]
     }
   ],
   "types": [

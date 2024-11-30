@@ -97,7 +97,7 @@ export function PartyCreate() {
               </div>
               <div className="form-control flex gap-2 mt-auto">
                 <div className="text-center">
-                  <button className="btn btn-xs lg:btn-md btn-primary w-full" disabled={initialize.isPending}>
+                  <button className="btn btn-md btn-primary w-full" disabled={initialize.isPending}>
                     Create {initialize.isPending && "..."}
                   </button>
                 </div>

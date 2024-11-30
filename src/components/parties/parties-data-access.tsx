@@ -15,6 +15,7 @@ export function useSsProgram() {
   const transactionToast = useTransactionToast();
   const provider = useAnchorProvider();
   const programId = useMemo(() => getSsProgramId(cluster.network as Cluster), [cluster]);
+
   const program = getSsProgram(provider);
 
   const partiesAccounts = useQuery({
