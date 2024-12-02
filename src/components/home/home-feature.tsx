@@ -5,7 +5,7 @@ import { useSsProgram } from "../data-access/ss-data-access";
 import { Link } from "react-router";
 
 export default function HomeFeature() {
-  const { initialize, partiesAccounts } = useSsProgram();
+  const { initialize, partiesAccount } = useSsProgram();
   const { publicKey } = useWallet();
 
   const displayButton = function () {
@@ -16,13 +16,15 @@ export default function HomeFeature() {
         </div>
       );
     }
-    if (partiesAccounts.isLoading) {
+
+    if (partiesAccount.isLoading) {
       return <span className="loading loading-spinner loading-lg"></span>;
     }
-    return partiesAccounts.data?.length ? (
+
+    return partiesAccount.data?.length ? (
       <div className="form-control flex gap-2 mt-auto">
         <div className="text-center">
-          <button onClick={() => null} className="btn btn-md btn-primary">
+          <button className="btn btn-md btn-primary">
             <Link to={"parties"}>Create Party</Link>
           </button>
         </div>
@@ -33,9 +35,9 @@ export default function HomeFeature() {
           <button
             onClick={() => initialize.mutateAsync(publicKey as PublicKey)}
             className="btn btn-md btn-primary w-full"
-            disabled={partiesAccounts.isPending}
+            disabled={partiesAccount.isPending}
           >
-            Initialize Parties {partiesAccounts.isPending && "..."}
+            Initialize Parties {partiesAccount.isPending && "..."}
           </button>
         </div>
       </div>
