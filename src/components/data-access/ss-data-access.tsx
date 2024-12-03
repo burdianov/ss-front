@@ -72,5 +72,35 @@ export function useSsProgram() {
     onError: () => toast.error("Failed to create party"),
   });
 
-  return { createPartyMutation, initialize, getProgramAccount, partiesAccount, programId, partyAccounts };
+  const updatePartyMutation = useMutation({
+    mutationKey: ["party", "edit"],
+    mutationFn: ({
+      organizer,
+      partyId,
+      location,
+      timestamp,
+      budget,
+    }: {
+      organizer: PublicKey;
+      partyId: number;
+      location: string;
+      timestamp: BN;
+      budget: string;
+    }) => program.methods.updateParty(partyId, location, timestamp, budget).accounts({ organizer: organizer }).rpc(),
+    onSuccess: (signature) => {
+      transactionToast(signature);
+      return partiesAccount.refetch();
+    },
+    onError: () => toast.error("Failed to update party information"),
+  });
+
+  return {
+    createPartyMutation,
+    updatePartyMutation,
+    initialize,
+    getProgramAccount,
+    partiesAccount,
+    programId,
+    partyAccounts,
+  };
 }

@@ -6,7 +6,6 @@ import { Navigate, RouteObject, useRoutes } from "react-router-dom";
 
 const HomeFeature = lazy(() => import("../components/home/home-feature"));
 const PartiesFeature = lazy(() => import("../components/parties/parties-feature"));
-const PartyEditFeature = lazy(() => import("../components/party/party-edit-feature"));
 const BuddyFeature = lazy(() => import("../components/buddy/buddy-feature"));
 
 const links: { label: string; path: string }[] = [
@@ -17,8 +16,6 @@ const links: { label: string; path: string }[] = [
 const routes: RouteObject[] = [
   { path: "/", element: <HomeFeature /> },
   { path: "/parties", element: <PartiesFeature /> },
-  { path: "/parties/:id", element: <PartyEditFeature /> },
-  { path: "/participants", element: <ParticipantsFeature /> },
   { path: "/participants", element: <ParticipantsFeature /> },
   { path: "/buddy/:id", element: <BuddyFeature /> },
 ];

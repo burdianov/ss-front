@@ -1,6 +1,6 @@
 import { useWallet } from "@solana/wallet-adapter-react";
 
-import { PartyCreate } from "./parties-ui";
+import { Parties } from "./parties-ui";
 
 export default function PartiesFeature() {
   const { publicKey } = useWallet();
@@ -8,7 +8,7 @@ export default function PartiesFeature() {
   if (publicKey) {
     return (
       <>
-        <PartyCreate />
+        <Parties />
       </>
     );
   }
